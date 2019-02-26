@@ -1,6 +1,7 @@
-# Título del trabajo
+# Título del trabajo: Biblioteca María Moliner
 
-Descripción breve del proyecto a realizar (2-3 frases).
+Nuestro trabajo consistirá en programar una biblioteca virtual donde los ususarios podrán buscar un libro en función de su
+título, editorial, género, año de publicación, autor, colección... así como ver la fecha de devolución del préstamo. 
 
 ## Integrantes del equipo
 
@@ -10,4 +11,4 @@ Gabriela Álvarez Alonso-Allende     53671
 
 ## Objetivos del trabajo
 
-Lista de los objetivos que se persiguen con el trabajo propuesto.
+Aprende a programar y desarrollar un programa avanzado que podría ser utilizado por una biblioteca
