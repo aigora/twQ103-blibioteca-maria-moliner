@@ -11,4 +11,4 @@ Gabriela Álvarez Alonso-Allende     53671
 
 ## Objetivos del trabajo
 
-Aprende a programar y desarrollar un programa avanzado que podría ser utilizado por una biblioteca
+Aprender a programar y desarrollar un programa avanzado que podría ser utilizado por una biblioteca
