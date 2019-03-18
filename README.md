@@ -5,9 +5,9 @@ título, editorial, género, año de publicación, autor, colección... así com
 
 ## Integrantes del equipo
 
-@alvaromitachungara                
-Guisella Barroso Yovera             53839
-Gabriela Álvarez Alonso-Allende     53671
+Álvaro Mita Chungara @alvaromitachungara                
+Guisella Barroso Yovera            
+Gabriela Álvarez Alonso-Allende     
 
 ## Objetivos del trabajo
 
