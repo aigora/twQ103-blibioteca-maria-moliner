@@ -12,6 +12,210 @@ typedef struct{
 
 
 
+//Todas las funciones que vamos a necesitar
+int registralibro( );// 
+int mostrarlibro( );//
+int devuelveN( );//Funcion que devuelve un valor N que es el número de libros
+int ordenayear( );
+int ordenatitulo( );
+int ordenagenero();
+int ordenaautor();
+int buscalibro( );
+int buscayear( );
+int buscagenero();
+int buscaautor();
+
+int main()
+{	
+	int a,b,c; //para los switch-case
+	printf("\n*****BIBLIOTECA MARIA MOLINER*****\n");
+	do
+	{	
+		devuelveN( );//para saber el numero de libros
+		printf("\nQue desea hacer: \n1:Registrar \n2:Mostrar libros \n3:Buscar \n4:Ordenar \n5:Salir\n");
+		scanf("%i",&a);
+		
+		switch (a)
+		{
+			case 1:
+				registralibro( );
+			break;
+				
+			case 2:
+				mostrarlibro( );
+			break;
+		
+			case 3:// para las funciones de buscar
+				do
+				{
+					printf("\n1:Por fecha \n2:Por titulo \n3:Por genero \n4: Por autor \n5:Volver\n");
+					scanf("%i",&b);
+					switch(b)
+					{
+						case 1:
+							buscayear( );	
+						break;
+						
+						case 2:
+							buscalibro( );
+						break;
+						
+						case 3:
+							buscagenero();
+						break;
+						
+						case 4:
+							buscaautor();
+						break;
+						
+						case 5:
+							printf("\nHas vuelto al inicio.\n");
+						break;
+					}	
+				} while(b!=5);
+			break;
+			
+			case 4:// para las funciones de ordenar
+				do
+				{
+					printf("\n1:Por fecha \n2:Por genero \n3:Por titulo \n4:Por autor \n5:Volver\n");
+					scanf("%i",&c);
+					switch(c)
+					{
+						case 1:
+							ordenayear( );
+						break;
+						
+						case 2:
+							ordenagenero( );
+						break;
+						
+						case 3:
+							ordenatitulo( );
+						break;
+							
+						case 4:
+							ordenaautor();
+						break;
+						case 5:
+							printf("\nHas vuelto al inicio.\n");
+					}	
+				} while(c!=5);
+			break;
+			
+			case 5:
+				printf("\nHas salido del programa.\n");
+			break;		
+			
+			default:
+				printf("\nOpcion no disponible.\n");
+			break;
+		}
+	} while(a!=5);
+	return 0;
+}
+
+
+
+int registralibro( ) 
+{
+	libro lib;
+	FILE *pbiblioteca;
+	pbiblioteca=fopen("Biblioteca.txt","a");
+	
+	if (pbiblioteca == NULL)
+	{
+		printf("Error al abrir el fichero.\n");
+		return -1;
+	}
+	
+	else
+	{	
+		fflush(stdin);
+		
+		printf("\nTitulo del libro: \n");
+		scanf("%[^\n]", lib.titulo);
+		fprintf(pbiblioteca, "\n%s;\t\t\t", lib.titulo);
+		
+		fflush(stdin);
+		
+		printf("\nAutor del libro:  \n");
+		scanf("%[^\n]", lib.autor);
+		fprintf(pbiblioteca, "\n%s;\t\t\t", lib.autor);
+		
+		fflush(stdin);
+		
+		printf("\nGenero del libro:  \n");
+		scanf("%[^\n]", lib.genero);
+		fprintf(pbiblioteca, "\n%s; \t\t\t", lib.genero);
+		
+		printf("\nA%co del libro:\n", 164);
+		scanf("%d",&lib.year);
+		if(lib.year<0) //control errores
+		{
+			printf("\nA%co no valido\n",164);
+			return -1;
+		}
+		else
+			fprintf(pbiblioteca, "%d;\t", lib.year);
+			
+		printf("\nEstado del libro: (n = nuevo, u = usado, d = deteriorado)\n");
+		do{
+		scanf("%i",&lib.estado);
+		fflush(stdin);
+			switch (lib.estado){
+				case 1:
+					printf("\nEl libro es nuevo.\n");
+					break;
+				
+				case 2:
+					printf("\nEl libro esta usado.\n");
+					break;
+				
+				case 3:
+					printf("\nEl libro esta deteriorado.\n");
+					break;
+				
+				default:
+					printf("\nEstado del libro no valido. Vuelva a introducir el valor del estado.\n\n");
+					break;	
+			}
+		}while (lib.estado > 3 || lib.estado <1);
+		
+		fprintf(pbiblioteca, "%d;\t", lib.estado);
+
+			
+		printf("\nLibro registrado correctamente.\n");
+	}
+	fclose(pbiblioteca);
+	return 0;
+}
+
+
+
+int mostrarlibro( )
+{
+	FILE *pbiblioteca;
+	libro lib;
+	pbiblioteca=fopen("biblioteca.txt", "r");
+	
+	if (pbiblioteca == NULL)
+	{
+		printf("Error al abrir el fichero.\n");
+		return -1;
+	}
+	else
+	{
+		printf("\nTitulo\t\t\t\t\tAutor\t\t\t\tGenero\t\tA%co\t\tEstado\n\n",164);
+		while (feof(pbiblioteca) == 0) // Leemos el fichero y mostramos los libros
+		{  
+			fscanf(pbiblioteca, "%[^;]; %[^;]; %[^;]; %i; %d; ", lib.titulo, lib.autor, lib.genero, &lib.year, &lib.estado);
+			printf("%-40s %-30s %-15s %i\t\t%d\n",lib.titulo, lib.autor, lib.genero, lib.year, lib.estado);
+		}
+	}
+	fclose(pbiblioteca); 
+	return 0;
+}
 
 
 //funciones
