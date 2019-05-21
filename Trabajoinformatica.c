@@ -9,6 +9,7 @@ typedef struct{
 	char genero[50];
 	int year;
 	int estado; //1=nuevo, 2=usado, 3=deteriorado
+<<<<<<< HEAD
 }libro; // estructura de cada libro
 
 //Todas las funciones que vamos a necesitar
@@ -215,6 +216,8 @@ int mostrarlibro( )
 	fclose(pbiblioteca); 
 	return 0;
 }
+=======
+>>>>>>> 95fe1e6085344a054a8fda11d07b0ed817dd882a
 
 
 //funciones
@@ -350,7 +353,7 @@ int buscalibro( )
 // funcion para buscar por año
 int buscaryear()
 {
-	int i=0,existe=0;// para el bucle y para usar en el if y saber si hay pelis con el año dado
+	int i=0,existe=0;// para el bucle y para usar en el if y saber si hay libros con el año dado
 	int N=devuelveN( );//para saber el numero de libros
 	int yeardado;
 	char titulo[50];
@@ -431,9 +434,13 @@ int buscagenero(){
 				}
 			}
 			
+<<<<<<< HEAD
 			for(k=0; k<=strlen(lib[i].genero); k++)//bucle para recorrer cada libro
+=======
+			for(k=0; k<=strlen(lib[i].genero); k++)//bucle para recorrer cada libros
+>>>>>>> 95fe1e6085344a054a8fda11d07b0ed817dd882a
 			{
-				if (genero[0]==lib[i].genero[k])//comprobamos que coincidan el titulo introducido y el titulo de la pelicula registrada
+				if (genero[0]==lib[i].genero[k])//comprobamos que coincidan el titulo introducido y el titulo de la libros registrada
 				{
 					tmp1=0;
 					tmp2=k;
