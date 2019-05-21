@@ -159,7 +159,7 @@ int registralibro( )
 		else
 			fprintf(pbiblioteca, "%d;\t", lib.year);
 			
-		printf("\nEstado del libro: (n = nuevo, u = usado, d = deteriorado)\n");
+		printf("\nEstado del libro: (1 = nuevo, 2 = usado, d = deteriorado)\n");
 		do{
 		scanf("%i",&lib.estado);
 		fflush(stdin);
@@ -548,7 +548,7 @@ int buscalibro( )
 	return 0;
 }
 // funcion para buscar por año
-int buscaryear()
+int buscayear()
 {
 	int i=0,existe=0;// para el bucle y para usar en el if y saber si hay libros con el año dado
 	int N=devuelveN( );//para saber el numero de libros
