@@ -230,7 +230,7 @@ int buscagenero(){
 			
 			for(k=0; k<=strlen(lib[i].genero); k++)//bucle para recorrer cada libros
 			{
-				if (genero[0]==lib[i].genero[k])//comprobamos que coincidan el titulo introducido y el titulo de la pelicula registrada
+				if (genero[0]==lib[i].genero[k])//comprobamos que coincidan el titulo introducido y el titulo de la libros registrada
 				{
 					tmp1=0;
 					tmp2=k;
