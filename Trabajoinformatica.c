@@ -9,7 +9,7 @@ typedef struct{
 	char genero[50];
 	int year;
 	int estado; //1=nuevo, 2=usado, 3=deteriorado
-<<<<<<< HEAD
+
 }libro; // estructura de cada libro
 
 //Todas las funciones que vamos a necesitar
@@ -631,11 +631,11 @@ int buscagenero(){
 				}
 			}
 			
-<<<<<<< HEAD
+
 			for(k=0; k<=strlen(lib[i].genero); k++)//bucle para recorrer cada libro
-=======
+
 			for(k=0; k<=strlen(lib[i].genero); k++)//bucle para recorrer cada libros
->>>>>>> 95fe1e6085344a054a8fda11d07b0ed817dd882a
+
 			{
 				if (genero[0]==lib[i].genero[k])//comprobamos que coincidan el titulo introducido y el titulo de la libros registrada
 				{
