@@ -1,0 +1,28 @@
+
+La colmena;			
+Camilo Jose Cela;			
+novela; 			1951;	2;	
+Orgullo y prejuicio;			
+Jane Austen;			
+Novela; 			1813;	1;	
+Cien a¤os de soledad;			
+Gabriel Garcia Marquez;			
+Novela; 			1967;	1;	
+Hambre;			
+Knut Hamsun;			
+Novela; 			1890;	2;	
+El proceso;			
+Fran Kafka;			
+Novela; 			1925;	2;	
+Poemas;			
+Giacomo Leopardi;			
+Poesia; 			1818;	1;	
+Diario de un loco;			
+Nicolai Gogol;			
+Cuento; 			1882;	3;	
+1984;			
+George Orwell;			
+Novela; 			1948;	2;	
+Romeo y Julieta;			
+William Shakespeare;			
+Tragedia; 			1597;	3;	
