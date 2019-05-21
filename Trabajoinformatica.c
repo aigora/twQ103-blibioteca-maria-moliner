@@ -33,7 +33,7 @@ typedef struct{
 //funciones
 int buscaautor(){
 	int i=0,j=0,k=0,tmp1,tmp2;// para el bucle y para comparar
-	int N=devuelveN( );//para saber el numero de peliculas
+	int N=devuelveN( );// numero de libros en total
 	char autor[50];
 	libro lib[N];
 	libro aux;
@@ -72,9 +72,9 @@ int buscaautor(){
 				}
 			}
 			
-			for(k=0; k<=strlen(lib[i].autor); k++)//bucle para recorrer cada pelicula
+			for(k=0; k<=strlen(lib[i].autor); k++)//bucle para leer cada libro
 			{
-				if (autor[0]==lib[i].autor[k])//comprobamos que coincidan el titulo introducido y el titulo de la pelicula registrada
+				if (autor[0]==lib[i].autor[k])//comprobamos que coincidan el titulo introducido y el titulo de los libros 
 				{
 					tmp1=0;
 					tmp2=k;
@@ -96,10 +96,11 @@ int buscaautor(){
 	}
 	return 0;
 }
+//funcion para buscar libros
 int buscalibro( )
 {
 	int i=0,j=0,k=0,tmp1,tmp2;// para el bucle y para comparar
-	int N=devuelveN( );//para saber el numero de peliculas
+	int N=devuelveN( );//para saber el numero de libros
 	char titulo[50];
 	libro lib[N];
 	libro aux;
@@ -159,11 +160,11 @@ int buscalibro( )
 	}
 	return 0;
 }
-
+// funcion para buscar por año
 int buscaryear()
 {
 	int i=0,existe=0;// para el bucle y para usar en el if y saber si hay pelis con el año dado
-	int N=devuelveN( );//para saber el numero de peliculas
+	int N=devuelveN( );//para saber el numero de libros
 	int yeardado;
 	char titulo[50];
 	libro lib[N];
@@ -186,7 +187,7 @@ int buscaryear()
 			fscanf(pbiblioteca, "%[^;]; %[^;]; %[^;]; %i; %d;", lib[i].titulo, lib[i].autor, lib[i].genero, &lib[i].year, &lib[i].estado);
 			i++;
 		}
-		for(i=0;i<N;i++)//Recorremos el vector de las peliculas 
+		for(i=0;i<N;i++)//Recorremos el vector de las libros 
 		{
 			
 			if (yeardado==lib[i].year)
