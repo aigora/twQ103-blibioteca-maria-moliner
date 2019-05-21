@@ -27,10 +27,6 @@ typedef struct{
 
 
 
-
-
-
-
 //funciones
 int buscaryear()
 {
