@@ -219,7 +219,203 @@ int mostrarlibro( )
 =======
 >>>>>>> 95fe1e6085344a054a8fda11d07b0ed817dd882a
 
+int devuelveN( )
+{
+	FILE *pbiblioteca;
+	int N=0;// numero de lineas
+	char c;
+	pbiblioteca = fopen("biblioteca.txt", "r");
+	
+	if (pbiblioteca != NULL)
+	{
+		while (fscanf(pbiblioteca, "%c", &c) != EOF)
+		{
+			if (c == '\n') // va aumentando el numero de lineas
+				N++;
+		}
+		printf("\nHay %d libros.\n",N/3);
+	}
+	else
+	{
+		printf("Error al abrir el fichero.\n");
+		return -1;
+	}
+	fclose(pbiblioteca); 
+	return N/3;//Devuelve un valor que es el número de saltos de línea contados
+}  
 
+int ordenayear( )
+{
+	int N=devuelveN( );
+	FILE *pbiblioteca;
+	pbiblioteca = fopen("biblioteca.txt", "r");
+	libro lib[N];
+	libro aux; //Necesitamos una estructura auxiliar de almacenamiento temporal
+	int i=0, j=0;
+	
+	if (pbiblioteca == NULL)
+	{
+		printf("Error al abrir el fichero.\n");
+		return -1;
+	}
+	
+	else
+	{
+		while (feof(pbiblioteca) == 0) //Primero leemos los datos
+		{
+			fscanf(pbiblioteca, "%[^;]; %[^;]; %[^;]; %i; %d;", lib[i].titulo, lib[i].autor, lib[i].genero, &lib[i].year, &lib[i].estado);
+			i++;
+		}
+	
+		printf("\nLibros ordenados por a%co: \n",164);
+		printf("\nTitulo\t\t\t\t\tAutor\t\t\tGenero\t\tA%co\t\tEstado\n\n",164);
+
+		for(i=0; i<=N-1; i++) //Ahora lo ordenamos
+		{
+			for(j=i+1; j<=N-1 ; j++) //Comparamos cada elemento con el siguiente
+			{
+				if (lib[i].year > lib[j].year) //Si es mayor intercambiamos el contenido de los dos elementos
+				{
+				aux = lib[i]; 
+				lib[i] = lib[j];
+				lib[j] = aux;
+				}
+			}
+			printf("%-40s %-23s %-15s %i\t\t%d\n",lib[i].titulo, lib[i].autor, lib[i].genero, lib[i].year, lib[i].estado);
+		}	
+		printf("\n");
+	}
+	fclose(pbiblioteca);
+	return 0; 
+}
+
+
+
+int ordenatitulo()
+{
+	int N=devuelveN( );
+	FILE *pbiblioteca;
+	pbiblioteca = fopen("biblioteca.txt", "r");
+	libro lib[N];
+	libro aux; //Necesitamos una variable auxiliar de almacenamiento temporal
+	int i=0, j=0;
+	
+	if (pbiblioteca == NULL)
+	{
+		printf("Error al abrir el fichero.\n");
+		return -1;
+	}
+	else
+	{
+		while (feof(pbiblioteca) == 0) //Primero leemos los datos
+		{
+			fscanf(pbiblioteca, "%[^;]; %[^;]; %[^;]; %i; %d;", lib[i].titulo, lib[i].autor, lib[i].genero, &lib[i].year, &lib[i].estado);
+			i++;
+		}
+		printf("\nLibros ordenados por titulo: \n");
+		printf("\nTitulo\t\t\t\t\tAutor\t\t\tGenero\t\tA%co\t\tEstado\n\n",164);
+	
+		for(i=0; i<=N-1; i++) //Ahora lo ordenamos
+		{
+			for(j=i+1; j<=N-1 ; j++) // Comparamos cada elemento con el siguiente
+			{
+				if (strcmp(lib[i].titulo,lib[j].titulo)>0)//Si es mayor(alfabeticamente) intercambiamos el contenido de los dos elementos
+				{
+				aux = lib[i]; 
+				lib[i] = lib[j];
+				lib[j] = aux;
+				}
+			}
+			printf("%-40s %-23s %-15s %i\t\t%d\n",lib[i].titulo, lib[i].autor, lib[i].genero, lib[i].year, lib[i].estado);
+		}	
+		printf("\n");
+	}
+	fclose(pbiblioteca);
+	return 0; 
+}
+
+int ordenagenero(){
+	int N=devuelveN( );
+	FILE *pbiblioteca;
+	pbiblioteca = fopen("biblioteca.txt", "r");
+	libro lib[N];
+	libro aux;
+	int i=0, j=0;
+	if (pbiblioteca == NULL)
+	{
+		printf("Error al abrir el fichero.\n");
+		return -1;
+	}
+	else
+	{
+		while (feof(pbiblioteca) == 0) //Primero leemos los datos
+		{
+			fscanf(pbiblioteca, "%[^;]; %[^;]; %[^;]; %i; %d;", lib[i].titulo, lib[i].autor, lib[i].genero, &lib[i].year, &lib[i].estado);
+			i++;
+		}
+		printf("\nLibros ordenados por genero: \n");
+		printf("\nTitulo\t\t\t\t\tAutor\t\t\tGenero\t\tA%co\t\tEstado\n\n",164);
+	
+		for(i=0; i<=N-1; i++) //Ahora lo ordenamos
+		{
+			for(j=i+1; j<=N-1 ; j++) // Comparamos cada elemento con el siguiente
+			{
+				if (strcmp(lib[i].genero,lib[j].genero)>0)//Si es mayor(alfabeticamente) intercambiamos el contenido de los dos elementos
+				{
+				aux = lib[i]; 
+				lib[i] = lib[j];
+				lib[j] = aux;
+				}
+			}
+			printf("%-40s %-23s %-15s %i\t\t%d\n",lib[i].titulo, lib[i].autor, lib[i].genero, lib[i].year, lib[i].estado);
+		}	
+		printf("\n");
+	}
+	fclose(pbiblioteca);
+	return 0;
+}
+
+int ordenaautor(){
+	int N=devuelveN( );
+	FILE *pbiblioteca;
+	pbiblioteca = fopen("biblioteca.txt", "r");
+	libro lib[N];
+	libro aux;
+	int i=0, j=0;
+	if (pbiblioteca == NULL)
+	{
+		printf("Error al abrir el fichero.\n");
+		return -1;
+	}
+	else
+	{
+		while (feof(pbiblioteca) == 0) //Primero leemos los datos
+		{
+			fscanf(pbiblioteca, "%[^;]; %[^;]; %[^;]; %i; %d;", lib[i].titulo, lib[i].autor, lib[i].genero, &lib[i].year, &lib[i].estado);
+			i++;
+		}
+		printf("\nLibros ordenados por autor: \n");
+		printf("\nTitulo\t\t\t\t\tAutor\t\t\tGenero\t\tA%co\t\tEstado\n\n",164);
+	
+		for(i=0; i<=N-1; i++) //Ahora lo ordenamos
+		{
+			for(j=i+1; j<=N-1 ; j++) // Comparamos cada elemento con el siguiente
+			{
+				if (strcmp(lib[i].autor,lib[j].autor)>0)//Si es mayor(alfabeticamente) intercambiamos el contenido de los dos elementos
+				{
+				aux = lib[i]; 
+				lib[i] = lib[j];
+				lib[j] = aux;
+				}
+			}
+			printf("%-40s %-23s %-15s %i\t\t%d\n",lib[i].titulo, lib[i].autor, lib[i].genero, lib[i].year, lib[i].estado);
+		}	
+		printf("\n");
+	}
+	fclose(pbiblioteca);
+	return 0;
+
+}
 //funciones
 int buscaautor(){
 	int i=0,j=0,k=0,tmp1,tmp2;// para el bucle y para comparar
