@@ -1,4 +1,5 @@
 //TRABAJO INFORMATICA 2018-2019
+<<<<<<< HEAD
 #include<stdio.h>
 #include<string.h>
 
@@ -23,6 +24,8 @@ typedef struct{
 
 
 
+=======
+>>>>>>> parent of 3472f3d... funcion
 
 
 
